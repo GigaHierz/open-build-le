@@ -1,0 +1,12 @@
+{
+  "background_color": "#6E43E0",
+  "theme_color": "#ffffff",
+  "name": "Birdsview",
+  "short_name": "Birdsview",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [],
+  "splash_pages": null
+}
