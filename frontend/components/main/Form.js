@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Logo from "/public/images/logo.png";
 import Button from "/components/core/Button";
 import TextInput from "/components/core/TextInput";
 import Checkbox from "../core/Checkbox";
@@ -13,6 +15,8 @@ export default function Front(props) {
   const [eMail, setEMail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [github, setGithub] = useState("");
+  const [female, setFemale] = useState(false);
+  const [nonBinary, setNonBinary] = useState(false);
   const [checked, setChecked] = useState(false);
   function withdraw() {
     console.log("withdraw");
@@ -20,8 +24,8 @@ export default function Front(props) {
 
   return (
     <div className="p-4 xl:p-16">
+      <Image src={Logo} alt="Logo of H.E.R. DAO" />
       <h2>Header</h2>
-      <p>*Required Fields</p>
       <div>
         <TextInput
           name="lastName"
@@ -60,16 +64,16 @@ export default function Front(props) {
       <p>I identify as...</p>
       <div>
         <Checkbox
-          name="TestBox"
-          label="Female"
-          checked={checked}
-          onChange={() => setChecked(!checked)}
+          name="Female"
+          label="female"
+          checked={female}
+          onChange={() => setFemale(!female)}
         ></Checkbox>
         <Checkbox
-          name="TestBox"
-          label="None-Binary"
-          checked={checked}
-          onChange={() => setChecked(!checked)}
+          name="NonBinary"
+          label="non-Binary"
+          checked={nonBinary}
+          onChange={() => setNonBinary(!nonBinary)}
         ></Checkbox>
       </div>
       <div>
@@ -85,14 +89,16 @@ export default function Front(props) {
           value={github}
           onChange={(e) => setGithub(e.target.value)}
         ></TextInput>
+        <p>*Required Fields</p>
       </div>
       <Checkbox
         name="TestBox"
-        label="None-Binary"
+        label="I verify that the provided information above is truthful"
         checked={checked}
         onChange={() => setChecked(!checked)}
       ></Checkbox>
-      <Button onClick={() => withdraw()}>Cancel</Button>
+      <Button onClick={() => withdraw()}>Back</Button>
+      <Button onClick={() => withdraw()}>Next</Button>
     </div>
   );
 }
