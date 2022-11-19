@@ -19,7 +19,7 @@ const client = createClient(
   })
 );
 
-export default function ApplyPage(props) {
+export default function Front(props) {
   function withdraw() {
     console.log("withdraw");
   }

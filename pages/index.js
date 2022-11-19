@@ -1,5 +1,5 @@
-import Apply from "/components/main/Apply";
+import Front from "/components/main/Front";
 
-export default function ApplyPage(context) {
-  return <Apply />;
+export default function FrontPage(context) {
+  return <Front />;
 }
