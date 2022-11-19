@@ -21,8 +21,16 @@ describe('ScholarshipContract', function () {
       'ScholarshipContract'
     )
     const scholarshipContract = await ScholarshipContract.deploy(
-      '0x78344979959C9d25Beb73748269A2B5533F87a51',
-      ['0BXDN-5DT3$'],
+      0x78344979959c9d25beb73748269a2b5533f87a51,
+      [
+        '0BXDN-5DT3$',
+        '0BXDN-5DT33',
+        '0BXDN-5DT34',
+        '0BXDN-5DT35',
+        '0BXDN-5DT36',
+        '0BXDN-5DT37',
+        '0BXDN-5DT38'
+      ],
       300,
       []
     )

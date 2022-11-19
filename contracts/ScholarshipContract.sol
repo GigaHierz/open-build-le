@@ -33,20 +33,25 @@ contract ScholarshipContract {
         poapCollections = _poapCollections;
     }
 
-    function applyForTicket() public payable {
+    function applyForTicket() public payable returns (string memory) {
         require(
-            promoCodes.length <= _codeCounter.current(),
+            promoCodes.length >= _codeCounter.current(),
             "No more tickets available"
         );
-
-        _codeCounter.increment();
+        require(msg.value >= ticketPrice, "Sent amount is too low");
 
         // to.safeTransferFrom(owner, ticketPrice);
         emit AppliedForTicket(promoCodes[_codeCounter.current()]);
+        _codeCounter.increment();
+
+        return promoCodes[_codeCounter.current()];
     }
 
     function withdraw() public {
-        require(scholarReimbursed[msg.sender], "You already got reimbursed");
+        require(
+            scholarReimbursed[msg.sender] == false,
+            "You already got reimbursed"
+        );
 
         // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
         // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
