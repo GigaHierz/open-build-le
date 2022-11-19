@@ -1,7 +1,5 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import styles from "./TextInput.module.css";
 
 export default function TextInput(props) {
@@ -25,12 +23,6 @@ export default function TextInput(props) {
       >
         {props.label}
       </label>
-      {!props.disabled && (
-        <FontAwesomeIcon
-          className="absolute right-0 bottom-0.5 w-6 h-6 p-1 "
-          icon={faPencil}
-        />
-      )}
     </div>
   );
 }
