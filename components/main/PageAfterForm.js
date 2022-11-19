@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Button from "/components/core/Button";
 import Image from "next/image";
-import Placeholder from "/public/images/screenshot.png";
+import Placeholder from "/public/images/bildschirm.png";
 
 export default function Front(props) {
   function withdraw() {

@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Button from "/components/core/Button";
+import Checkbox from "../core/Checkbox";
 
 export default function Front(props) {
+  const [privacyPolicy, setprivacyPolicy] = useState(false);
+  const [terms, setTerms] = useState(false);
+
   function withdraw() {
     console.log("withdraw");
   }
@@ -37,12 +41,18 @@ export default function Front(props) {
             like Binance, Crypto.com, Coinbase, …
           </p>
           <div className="">
-            <input type="checkbox" />
-            <p>
-              I agree to the <a>privacy policy</a>
-            </p>
-            <input type="checkbox" />
-            <p>I have read and agree to the following terms and conditions</p>
+            <Checkbox
+              name="BoxPolicy"
+              label="I agree to the privacy policy"
+              checked={privacyPolicy}
+              onChange={() => setprivacyPolicy(!privacyPolicy)}
+            ></Checkbox>
+            <Checkbox
+              name="BoxTerms"
+              label="I have read and agree to the following terms and conditions"
+              checked={terms}
+              onChange={() => setTerms(!terms)}
+            ></Checkbox>
           </div>
           <div className="flex gap-4">
             <Button onClick={() => withdraw()}>Agree and Continue</Button>
