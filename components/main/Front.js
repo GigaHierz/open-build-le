@@ -26,11 +26,15 @@ export default function Front(props) {
 
   return (
     <div className="p-4 xl:p-16">
-      <h1>HER DAO</h1>
+      <h1>H.E.R. DAO x womenhack</h1>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p>lorem</p>
+          <p>
+            Apply for a ticket for the womxn Conference and Hackathon in New
+            York, March 2022. We are happy to announce that Web3Hubs provided us
+            with 50 free tickets for our community.{" "}
+          </p>
           <div className="flex gap-4">
             {/* apply */}
             <ConnectKitButton />
