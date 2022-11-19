@@ -18,12 +18,12 @@ async function main () {
   )
   const scholarshipContract = await ScholarshipContract.deploy(
     '0x78344979959C9d25Beb73748269A2B5533F87a51',
-    [jasdkfjbsjdjfka],
+    ['0BXDN-5DT3$'],
     300,
     []
   )
 
-  await lock.deployed()
+  await scholarshipContract.deployed()
 
   console.log(`Smart Contract deployed to ${scholarshipContract.address}`)
 }

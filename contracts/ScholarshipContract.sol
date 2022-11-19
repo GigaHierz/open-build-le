@@ -14,7 +14,6 @@ contract ScholarshipContract {
     string[] public promoCodes;
     uint256 public ticketPrice;
     address[] public poapCollections;
-    uint256 public balanceReceived;
     mapping(address => bool) scholarReimbursed;
 
     Counters.Counter private _codeCounter;
@@ -57,5 +56,9 @@ contract ScholarshipContract {
         scholarReimbursed[msg.sender] = true;
 
         emit Withdrawal(to);
+    }
+
+    function getPoapCollection() public view returns (string[] memory) {
+        return promoCodes;
     }
 }
