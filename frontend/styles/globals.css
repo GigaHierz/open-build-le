@@ -4,6 +4,12 @@
 
 @layer base {
   * {
-    @apply text-white;
+    @apply font-roboto-mono text-white;
+  }
+  h1 {
+    @apply text-5xl my-8;
+  }
+  h2 {
+    @apply text-2xl my-6;
   }
 }

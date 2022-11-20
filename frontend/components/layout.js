@@ -1,7 +1,10 @@
-export default function RootLayout(props) {
+import Header from "/components/core/Header";
+
+export default function Layout(props) {
   return (
-    <main className="relative min-h-screen bg-grey scroll-smooth">
-      {props.children}
-    </main>
+    <div className="min-h-screen p-8 xl:px-24 bg-grey ">
+      <Header />
+      <main className="relative scroll-smooth py-4">{props.children}</main>
+    </div>
   );
 }

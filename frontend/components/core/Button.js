@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-export default function Button (props) {
+export default function Button(props) {
   return (
     <button
+      className="h-min flex justify-center items-center rounded-lg p-4 cursor-pointer bg-green transition-all"
       disabled={props.disabled}
-      className='h-min flex justify-center items-center rounded py-1 px-3 cursor-pointer bg-gray-100 shadow-outer transition-all'
-      type={props.type || 'button'}
+      type={props.type || "button"}
       onClick={props.onClick}
     >
-      <div className=''>{props.children}</div>
+      <div className="text-grey font-nunito font-bold">{props.children}</div>
     </button>
-  )
+  );
 }

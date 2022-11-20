@@ -1,33 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import Button from "/components/core/Button";
 import Image from "next/image";
-import Logo from "/public/images/logo.png";
 import Placeholder from "/public/images/womenTogehter.png";
 
-export default function Front(props) {
-  function withdraw() {
-    console.log("withdraw");
-  }
-
+export default function Applied(props) {
   return (
-    <div className="p-4 xl:p-16 bg-grey">
-      <header>
-        <Image src={Logo} alt="Logo of H.E.R. DAO" />
-        <a>about</a>
-        <a>apply</a>
-        <a>reimburse</a>
-        <a>FAQ</a>
-      </header>
+    <div className="grid place-items-center">
       <Image src={Placeholder} alt="Picture of the author" />
-      <h2>Congrats</h2>
-      <div className="grid grid-cols-2 gap-4">
+      <h1>Congrats</h1>
+      <div className="grid justify-center max-w-screen-md gap-4 text-center mb-8">
         <div>
           <p>
             Womenhack NY 2023 was a huge success and we are so glad you could
             share this beautiful experience with us. If you hold the two
             requested POAPs, you will receive your staked tokens back.
+          </p>
+          <p className="mt-8">
+            If you hold the two requested POAPs, you will receive your staked
+            tokens back.{" "}
           </p>
           <a
             href="https://linktr.ee/H.E.R.DAO"
@@ -38,6 +30,11 @@ export default function Front(props) {
           </a>
         </div>
       </div>
+      <Link href="/reimburse">
+        <a>
+          <Button>Reimburse</Button>
+        </a>
+      </Link>
     </div>
   );
 }
