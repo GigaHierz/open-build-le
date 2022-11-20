@@ -12,8 +12,14 @@ export default function Front(props) {
   }
 
   return (
-    <div className="p-4 xl:p-16">
-      <Image src={Logo} alt="Logo of H.E.R. DAO" />
+    <div className="p-4 xl:p-16 bg-grey">
+      <header>
+        <Image src={Logo} alt="Logo of H.E.R. DAO" />
+        <a>about</a>
+        <a>apply</a>
+        <a>reimburse</a>
+        <a>FAQ</a>
+      </header>
       <h2>Terms of Service</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>

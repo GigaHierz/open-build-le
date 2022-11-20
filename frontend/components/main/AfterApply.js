@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "/components/core/Button";
 import Checkbox from "../core/Checkbox";
 import Logo from "/public/images/logo.png";
+import YoutubeEmbed from "/components/core/YoutubeEmbed";
 
 export default function Front(props) {
   const [privacyPolicy, setprivacyPolicy] = useState(false);
@@ -15,8 +16,11 @@ export default function Front(props) {
   }
 
   return (
-    <div className="p-4 xl:p-16">
-      <Image src={Logo} alt="Logo of H.E.R. DAO" />
+    <div className="p-4 xl:p-16 bg-grey">
+      <header>
+        <Image src={Logo} alt="Logo of H.E.R. DAO" />
+      </header>
+
       <h2>What do you need to do</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
@@ -66,6 +70,10 @@ export default function Front(props) {
               checked={terms}
               onChange={() => setTerms(!terms)}
             ></Checkbox>
+          </div>
+          <div className="App">
+            <h1>Youtube Embed</h1>
+            <YoutubeEmbed youtubeId="ZE2HxTmxfrI" />
           </div>
           <div className="flex gap-4">
             <Button onClick={() => withdraw()}>Agree and Continue</Button>

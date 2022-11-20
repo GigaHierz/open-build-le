@@ -27,8 +27,10 @@ export default function Front(props) {
   }
 
   return (
-    <div className="p-4 xl:p-16">
-      <Image src={Logo} alt="Logo of H.E.R. DAO" />
+    <div className="p-4 xl:p-16 bg-grey">
+      <header>
+        <Image src={Logo} alt="Logo of H.E.R. DAO" />
+      </header>
       <h1>H.E.R. DAO x womenhack</h1>
       <div className="grid grid-cols-2 gap-4">
         <div>
