@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
-import Image from "next/image";
-import Logo from "/public/images/logo.png";
 import Button from "/components/core/Button";
 import TextInput from "/components/core/TextInput";
 import Checkbox from "../core/Checkbox";
@@ -98,12 +96,16 @@ export default function Front(props) {
         checked={checked}
         onChange={() => setChecked(!checked)}
       ></Checkbox>
-      <Button onClick={() => withdraw()}>
-        <Link href="/apply">back</Link>
-      </Button>
-      <Button onClick={() => withdraw()}>
-        <Link href="/terms">next</Link>
-      </Button>
+      <Link href="/apply">
+        <a>
+          <Button>back</Button>
+        </a>
+      </Link>
+      <Link href="/terms">
+        <a>
+          <Button>next</Button>
+        </a>
+      </Link>
     </div>
   );
 }

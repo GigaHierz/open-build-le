@@ -12,7 +12,7 @@ export default function Apply(props) {
 
   return (
     <div>
-      <h2>What do you need to do</h2>
+      <h1>What do you need to do</h1>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p>
@@ -67,11 +67,11 @@ export default function Apply(props) {
             <YoutubeEmbed youtubeId="ZE2HxTmxfrI" />
           </div>
           <div className="flex gap-4">
-            <Button disabled={!terms || !privacyPolicy}>
-              <Link disabled={!terms || !privacyPolicy} href="/form">
-                Agree & Continue
-              </Link>
-            </Button>
+            <Link href="/form">
+              <a>
+                <Button>Agree & Continue</Button>
+              </a>
+            </Link>
             <Link href="/">
               <a>
                 <Button>Cancel</Button>

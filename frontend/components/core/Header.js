@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "/public/images/logo.png";
+import { ConnectKitButton } from "connectkit";
 
 export default function Header(props) {
   return (
@@ -15,17 +16,18 @@ export default function Header(props) {
 
       <div className="flex items-end gap-6 text-lg">
         <Link href="/about">
-          <a>about</a>
+          <a className="py-2">about</a>
         </Link>
         <Link href="/apply">
-          <a>apply</a>
+          <a className="py-2">apply</a>
         </Link>
         <Link href="/reimburse">
-          <a>reimburse</a>
+          <a className="py-2">reimburse</a>
         </Link>
         <Link href="/faq">
-          <a>FAQ</a>
+          <a className="py-2">FAQ</a>
         </Link>
+        <ConnectKitButton />
       </div>
     </header>
   );

@@ -7,7 +7,7 @@ export default function Front(props) {
   return (
     <div>
       <Image src={Placeholder} alt="Picture of the author" />
-      <h2>Congrats</h2>
+      <h1>Congrats</h1>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p>
