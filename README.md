@@ -12,6 +12,22 @@ For example H.E.R. DAO, a women and non.binary focused developer and builder DAO
 
 ## Problem
 
+H.E.R. DAO, women and non-binary-focused developer and builder DAO get tickets provided by conferences to distribute to women and non-binary people. The organization sponsoring the tickets expects something in return, like the ticket recipients attending a talk or workshop.
+This is difficult to keep track of
+
+## Solution
+
+Upon applying for a ticket, the user has to stake the value of the ticket in the Contract. During the conference the user will be abel to receive a POAP (Proof of Attendance).
+When coming back to the website we will do an API request to the POAP API to check if the user has the POAP of the mandatory event. Only then they will be able to withdraw their staked tokens.
+
+## UI/UX
+
+Design Template can be found (here)[https://www.figma.com/file/tbdJMwOTmi8aPJUeIIdIwh/Open-Build?node-id=29%3A147&t=5twIBFmh6msElRUx-0]
+
+## Smart Contract
+
+The Smart Contract can be used as a template. As parameter, it takes a list of PromoCodes, the value of the ticket, and the address of the POAP event.
+
 ## Tech used
 
 Frontend is build with React, Tailwind, Next.js and deployed on Vercel.
