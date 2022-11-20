@@ -15,8 +15,22 @@ contract ScholarshipContract {
     uint256 public ticketPrice;
     address[] public poapCollections;
     mapping(address => bool) scholarReimbursed;
+    address[] scholarshipRecipients;
 
     Counters.Counter private _codeCounter;
+
+    modifier alreadyApplied(address _to) {
+        bool exists;
+        for (uint256 i = 0; i < scholarshipRecipients.length; i++) {
+            //for loop example
+            exists = scholarshipRecipients[i] == msg.sender;
+        }
+        require(
+            !exists,
+            "You already bought a ticket. There is only one Ticket per person."
+        );
+        _;
+    }
 
     event Withdrawal(address to);
     event AppliedForTicket(string promoCode);
@@ -33,7 +47,12 @@ contract ScholarshipContract {
         poapCollections = _poapCollections;
     }
 
-    function applyForTicket() public payable returns (string memory) {
+    function applyForTicket()
+        public
+        payable
+        alreadyApplied(msg.sender)
+        returns (string memory)
+    {
         require(
             promoCodes.length >= _codeCounter.current(),
             "No more tickets available"
@@ -43,8 +62,9 @@ contract ScholarshipContract {
         // to.safeTransferFrom(owner, ticketPrice);
         emit AppliedForTicket(promoCodes[_codeCounter.current()]);
         _codeCounter.increment();
+        scholarshipRecipients.push(msg.sender);
 
-        return promoCodes[_codeCounter.current()];
+        return promoCodes[_codeCounter.current() - 1];
     }
 
     function withdraw() public {

@@ -29,6 +29,7 @@ async function main () {
       '0BXDN-5DT38'
     ],
     ticketPrice,
+    // 10000000000,
     []
   )
 

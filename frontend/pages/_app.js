@@ -7,14 +7,8 @@ const client = createClient(
   getDefaultClient({
     appName: 'ConnectKit Next.js demo',
     //infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
-    //alchemyId:  process.env.NEXT_PUBLIC_ALCHEMY_ID,
-    chains: [
-      chain.mainnet,
-      chain.polygon,
-      chain.optimism,
-      chain.arbitrum,
-      chain.goerli
-    ]
+    alchemyId: 'RMikw8e80aHE2Ywu-uV1XgzPE2lhdfGU',
+    chains: [chain.mainnet, chain.polygon, chain.optimism, chain.goerli]
   })
 )
 
