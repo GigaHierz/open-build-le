@@ -1,31 +1,33 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Logo from "/public/images/logo.png";
-import Button from "/components/core/Button";
-import TextInput from "/components/core/TextInput";
-import Checkbox from "../core/Checkbox";
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
-export default function Front(props) {
-  const [lastName, setLastName] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [suffix, setSuffix] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [eMail, setEMail] = useState("");
-  const [linkedin, setLinkedin] = useState("");
-  const [github, setGithub] = useState("");
-  const [female, setFemale] = useState(false);
-  const [nonBinary, setNonBinary] = useState(false);
-  const [checked, setChecked] = useState(false);
-  function withdraw() {
-    console.log("withdraw");
+import Image from 'next/image'
+import Logo from '/public/images/logo.png'
+import Button from '/components/core/Button'
+import TextInput from '/components/core/TextInput'
+import Checkbox from '../core/Checkbox'
+
+export default function Front (props) {
+  const [lastName, setLastName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [suffix, setSuffix] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [eMail, setEMail] = useState('')
+  const [linkedin, setLinkedin] = useState('')
+  const [github, setGithub] = useState('')
+  const [female, setFemale] = useState(false)
+  const [nonBinary, setNonBinary] = useState(false)
+  const [checked, setChecked] = useState(false)
+  function withdraw () {
+    console.log('withdraw')
   }
 
   return (
-    <div className="p-4 xl:p-16 bg-grey">
+    <div className='p-4 xl:p-16 bg-grey'>
       <header>
-        <Image src={Logo} alt="Logo of H.E.R. DAO" />
+        <Image src={Logo} alt='Logo of H.E.R. DAO' />
         <a>about</a>
         <a>apply</a>
         <a>reimburse</a>
@@ -34,77 +36,81 @@ export default function Front(props) {
       <h2>Header</h2>
       <div>
         <TextInput
-          name="lastName"
+          name='lastName'
           required={true}
-          label="Last Name"
+          label='Last Name'
           value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          onChange={e => setLastName(e.target.value)}
         ></TextInput>
         <TextInput
-          name="firstName"
-          label="First Name*"
+          name='firstName'
+          label='First Name*'
           value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          onChange={e => setFirstName(e.target.value)}
         ></TextInput>
         <TextInput
-          name="suffix"
-          label="Suffix"
+          name='suffix'
+          label='Suffix'
           value={suffix}
-          onChange={(e) => setSuffix(e.target.value)}
+          onChange={e => setSuffix(e.target.value)}
         ></TextInput>
       </div>
       <div>
         <TextInput
-          name="phoneNumber"
-          label="Phone Number"
+          name='phoneNumber'
+          label='Phone Number'
           value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
+          onChange={e => setPhoneNumber(e.target.value)}
         ></TextInput>
         <TextInput
-          name="eMail"
-          label="E-mail*"
+          name='eMail'
+          label='E-mail*'
           value={eMail}
-          onChange={(e) => setEMail(e.target.value)}
+          onChange={e => setEMail(e.target.value)}
         ></TextInput>
       </div>
       <p>I identify as...</p>
       <div>
         <Checkbox
-          name="Female"
-          label="female"
+          name='Female'
+          label='female'
           checked={female}
           onChange={() => setFemale(!female)}
         ></Checkbox>
         <Checkbox
-          name="NonBinary"
-          label="non-Binary"
+          name='NonBinary'
+          label='non-Binary'
           checked={nonBinary}
           onChange={() => setNonBinary(!nonBinary)}
         ></Checkbox>
       </div>
       <div>
         <TextInput
-          name="linkedin"
-          label="LinkedIn"
+          name='linkedin'
+          label='LinkedIn'
           value={linkedin}
-          onChange={(e) => setLinkedin(e.target.value)}
+          onChange={e => setLinkedin(e.target.value)}
         ></TextInput>
         <TextInput
-          name="github"
-          label="GitHub"
+          name='github'
+          label='GitHub'
           value={github}
-          onChange={(e) => setGithub(e.target.value)}
+          onChange={e => setGithub(e.target.value)}
         ></TextInput>
         <p>*Required Fields</p>
       </div>
       <Checkbox
-        name="TestBox"
-        label="I verify that the provided information above is truthful"
+        name='TestBox'
+        label='I verify that the provided information above is truthful'
         checked={checked}
         onChange={() => setChecked(!checked)}
       ></Checkbox>
-      <Button onClick={() => withdraw()}>Back</Button>
-      <Button onClick={() => withdraw()}>Next</Button>
+      <Button onClick={() => withdraw()}>
+        <Link href='/apply'>back</Link>
+      </Button>
+      <Button onClick={() => withdraw()}>
+        <Link href='/terms'>next</Link>
+      </Button>
     </div>
-  );
+  )
 }
