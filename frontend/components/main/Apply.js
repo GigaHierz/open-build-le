@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import Button from '/components/core/Button'
-import Checkbox from '../core/Checkbox'
-import Logo from '/public/images/logo.png'
-import YoutubeEmbed from '/components/core/YoutubeEmbed'
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Button from "/components/core/Button";
+import Checkbox from "../core/Checkbox";
+import Logo from "/public/images/logo.png";
+import YoutubeEmbed from "/components/core/YoutubeEmbed";
 
-export default function Apply (props) {
-  const [privacyPolicy, setprivacyPolicy] = useState(false)
-  const [terms, setTerms] = useState(false)
+export default function Apply(props) {
+  const [privacyPolicy, setprivacyPolicy] = useState(false);
+  const [terms, setTerms] = useState(false);
 
-  function withdraw () {
-    console.log('withdraw')
+  function withdraw() {
+    console.log("withdraw");
   }
 
   return (
-    <div className='p-4 xl:p-16 bg-grey'>
+    <div className="p-4 xl:p-16 bg-grey">
       <header>
-        <Image src={Logo} alt='Logo of H.E.R. DAO' />
+        <Image src={Logo} alt="Logo of H.E.R. DAO" />
         <a>about</a>
         <a>apply</a>
         <a>reimburse</a>
@@ -27,7 +27,7 @@ export default function Apply (props) {
       </header>
 
       <h2>What do you need to do</h2>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className="grid grid-cols-2 gap-4">
         <div>
           <p>
             We will ask you to deposit the value of the ticket ($300) using
@@ -44,54 +44,33 @@ export default function Apply (props) {
             we will ask you some questions and share links to your social media
             platforms.
           </p>
-          <h2>How to secure a ticket</h2>
-          <p>
-            In order to stake, you will need a wallet with USDCs (What’s this?).
-            Please make sure to inform yourself how to store your private key.
-            To get USDCs into your wallet, you will need to exchange FIAT
-            (Dollar, EUR) to USDC. This can be done on any centralised exchange
-            including Binance, Crypto.com, Coinbase,etc.
-          </p>
-          <h2>Why Crypto Currency</h2>
-          <p>
-            Smart contracts are a way to make a binding agreement that is
-            written in code. Both parties are bound to the rules of the smart
-            contract. In this case, we will reimburse you if you fulfill the
-            agreement. Just show up to the mandatory events or we get to keep
-            your staked tokens for our effort and in some cases, to reimburse
-            the sponsor. What are smart contracts? Watch this video to learn
-            more!
-          </p>
-          <div className=''>
+          <a href>Read the FAQ to find out more</a>
+          <div className="">
             <Checkbox
-              name='BoxPolicy'
-              label='I agree to the privacy policy'
+              name="BoxPolicy"
+              label="I agree to the privacy policy"
               checked={privacyPolicy}
               onChange={() => setprivacyPolicy(!privacyPolicy)}
             ></Checkbox>
             <Checkbox
-              name='BoxTerms'
-              label='I have read and agree to the following terms and conditions'
+              name="BoxTerms"
+              label="I have read and agree to the following terms and conditions"
               checked={terms}
               onChange={() => setTerms(!terms)}
             ></Checkbox>
           </div>
-          <div className='App'>
-            <h1>Youtube Embed</h1>
-            <YoutubeEmbed youtubeId='ZE2HxTmxfrI' />
-          </div>
-          <div className='flex gap-4'>
+          <div className="flex gap-4">
             <Button disabled={!terms || !privacyPolicy}>
-              <Link disabled={!terms || !privacyPolicy} href='/form'>
+              <Link disabled={!terms || !privacyPolicy} href="/form">
                 Agree & Continue
               </Link>
             </Button>
             <Button onClick={() => withdraw()}>
-              <Link href='/'>Cancel</Link>
+              <Link href="/">Cancel</Link>
             </Button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
