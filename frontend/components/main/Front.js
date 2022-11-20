@@ -6,14 +6,7 @@ import Link from 'next/link'
 import Placeholder from '/public/images/womenPower.png'
 import Logo from '/public/images/logo.png'
 
-import Placeholder from '/public/images/screenshot.png'
-// import { ConnectKitButton } from "connectkit";
-import { WagmiConfig, createClient } from 'wagmi'
-import {
-  ConnectKitProvider,
-  ConnectKitButton,
-  getDefaultClient
-} from 'connectkit'
+import { ConnectKitButton } from 'connectkit'
 import Button from '/components/core/Button'
 import { Contract } from 'ethers'
 
