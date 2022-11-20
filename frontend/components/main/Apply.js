@@ -1,75 +1,84 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Button from "/components/core/Button";
 import Checkbox from "../core/Checkbox";
-import Logo from "/public/images/logo.png";
 import YoutubeEmbed from "/components/core/YoutubeEmbed";
 
 export default function Apply(props) {
   const [privacyPolicy, setprivacyPolicy] = useState(false);
   const [terms, setTerms] = useState(false);
 
-  function withdraw() {
-    console.log("withdraw");
-  }
-
   return (
-    <div className="p-4 xl:p-16 bg-grey">
-      <header>
-        <Image src={Logo} alt="Logo of H.E.R. DAO" />
-        <a>about</a>
-        <a>apply</a>
-        <a>reimburse</a>
-        <a>FAQ</a>
-      </header>
-
-      <h2>What do you need to do</h2>
-      <div className="grid grid-cols-2 gap-4">
+    <div>
+      <h1>What do you need to do</h1>
+      <p>
+        We will ask you to deposit the value of the ticket ($300) using
+        cryptocurrency tokens with us for the time of the conference. As these
+        tickets were sponsored by Web3Hubs, we kindly ask you to participate in
+        2 mandatory events. At each of these events, you will receive a POAP.
+        Please make sure to get these POAPs as they are the preconditions for
+        you to receive your staked tokens. Additionally, install the APP if you
+        haven’t done so yet.
+      </p>
+      <div className="grid lg:grid-cols-2 gap-8">
         <div>
-          <p>
-            We will ask you to deposit the value of the ticket ($300) using
-            cryptocurrency tokens with us for the time of the conference. As
-            these tickets were sponsored by Web3Hubs, we kindly ask you to
-            participate in 2 mandatory events. At each of these events, you will
-            receive a POAP. Please make sure to get these POAPs as they are the
-            preconditions for you to receive your staked tokens. Additionally,
-            install the APP if you haven’t done so yet.
-          </p>
           <h2>Who can apply</h2>
           <p>
             As these tickets are supposed to go to women and non-binary people,
             we will ask you some questions and share links to your social media
             platforms.
           </p>
-          <a href>Read the FAQ to find out more</a>
-          <div className="">
-            <Checkbox
-              name="BoxPolicy"
-              label="I agree to the privacy policy"
-              checked={privacyPolicy}
-              onChange={() => setprivacyPolicy(!privacyPolicy)}
-            ></Checkbox>
-            <Checkbox
-              name="BoxTerms"
-              label="I have read and agree to the following terms and conditions"
-              checked={terms}
-              onChange={() => setTerms(!terms)}
-            ></Checkbox>
-          </div>
-          <div className="flex gap-4">
-            <Button disabled={!terms || !privacyPolicy}>
-              <Link disabled={!terms || !privacyPolicy} href="/form">
-                Agree & Continue
-              </Link>
-            </Button>
-            <Button onClick={() => withdraw()}>
-              <Link href="/">Cancel</Link>
-            </Button>
-          </div>
         </div>
+        <div>
+          <h2>How to secure a ticket</h2>
+          <p>
+            In order to stake, you will need a wallet with USDCs (What’s this?).
+            Please make sure to inform yourself how to store your private key.
+            To get USDCs into your wallet, you will need to exchange FIAT
+            (Dollar, EUR) to USDC. This can be done on any centralised exchange
+            including Binance, Crypto.com, Coinbase,etc.
+          </p>
+        </div>
+        <div>
+          <h2>Why Crypto Currency</h2>
+          <p>
+            Smart contracts are a way to make a binding agreement that is
+            written in code. Both parties are bound to the rules of the smart
+            contract. In this case, we will reimburse you if you fulfill the
+            agreement. Just show up to the mandatory events or we get to keep
+            your staked tokens for our effort and in some cases, to reimburse
+            the sponsor. What are smart contracts? Watch this video to learn
+            more!
+          </p>
+        </div>
+      </div>
+      <div className="grid gap-4 px-12 py-4">
+        <Checkbox
+          name="BoxPolicy"
+          label="I agree to the privacy policy"
+          checked={privacyPolicy}
+          onChange={() => setprivacyPolicy(!privacyPolicy)}
+        ></Checkbox>
+        <Checkbox
+          name="BoxTerms"
+          label="I have read and agree to the following terms and conditions"
+          checked={terms}
+          onChange={() => setTerms(!terms)}
+        ></Checkbox>
+      </div>
+      <div className="flex justify-center gap-4">
+        <Link href="/form">
+          <a>
+            <Button>Agree & Continue</Button>
+          </a>
+        </Link>
+        <Link href="/">
+          <a>
+            <Button>Cancel</Button>
+          </a>
+        </Link>
       </div>
     </div>
   );
