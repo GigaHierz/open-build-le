@@ -83,8 +83,14 @@ export default function Terms (props) {
               Agree and Continue
             </Button>
             <Button onClick={() => withdraw()}>Cancel</Button>
+            {isSuccess && (
+              <Button onClick={() => withdraw()}>
+                {' '}
+                <Link href='/apply'>Get Your Promo Code</Link>
+              </Button>
+            )}
           </div>
-          // TODO: put in pop-up
+          {/* TODO: pop-up for error message  */}
           {(isPrepareError || isError) && (
             <div>Error: {(prepareError || error)?.message}</div>
           )}

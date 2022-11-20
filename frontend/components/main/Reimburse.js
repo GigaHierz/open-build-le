@@ -57,13 +57,34 @@ export default function Reimburse (props) {
         <a>reimburse</a>
         <a>FAQ</a>
       </header>
-      <h2>Terms of Service</h2>
+      <h2>Get Reimbursed</h2>
       <div className='grid grid-cols-2 gap-4'>
         <div>
+          <p>
+            Womenhack NY 2023 was a huge success and we are so glad you could
+            share this beautiful experience with us. If you hold the two
+            requested POAPs, you will receive your staked tokens back.
+          </p>
+          <p>
+            If you hold the two requested POAPs, you will receive your staked
+            tokens back.{' '}
+          </p>
           <div className='flex gap-4'>
             <Button disabled={!write || isLoading} onClick={() => write()}>
               Reimburse
             </Button>
+
+            {/* TODO: pop-up for error message  */}
+            {(isPrepareError || isError) && (
+              <div>
+                {' '}
+                {(prepareError || error)?.message.includes(
+                  'You already got reimbursed'
+                )
+                  ? 'You already got reimbursed'
+                  : error?.message}
+              </div>
+            )}
           </div>
         </div>
       </div>
