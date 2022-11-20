@@ -11,3 +11,8 @@ For example H.E.R. DAO, a women and non.binary focused developer and builder DAO
 - (Anh)[https://github.com/apb235]: Design, UI/UX
 
 ## Problem
+
+## Tech used
+
+Frontend is build with React, Tailwind, Next.js and deployed on Vercel.
+Smart Contract is written in Solidity and deployed on (Goerli Testnet)[https://goerli.etherscan.io/address/0xae5c8A495486fC0E14c6833f5772018976c5cD9a]
