@@ -4,6 +4,6 @@
 
 @layer base {
   * {
-    @apply text-white;
+    @apply font-roboto-mono text-white;
   }
 }
