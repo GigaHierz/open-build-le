@@ -78,7 +78,7 @@ export default function Reimburse (props) {
             {(isPrepareError || isError) && (
               <div>
                 {' '}
-                {(prepareError || error)?.message.includes(
+                {(prepareError || error)?.message?.includes(
                   'You already got reimbursed'
                 )
                   ? 'You already got reimbursed'

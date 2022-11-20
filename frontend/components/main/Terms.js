@@ -7,6 +7,7 @@ import {
   useWaitForTransaction,
   useAccount
 } from 'wagmi'
+import Link from 'next/link'
 
 import Button from '/components/core/Button'
 import Image from 'next/image'
@@ -79,16 +80,24 @@ export default function Terms (props) {
             you there!
           </p>
           <div className='flex gap-4'>
-            <Button disabled={!write || isLoading} onClick={() => write()}>
-              Agree and Continue
-            </Button>
-            <Button onClick={() => withdraw()}>Cancel</Button>
+            {!isSuccess && !isLoading && (
+              <Button disabled={!write || isLoading} onClick={() => write()}>
+                Agree
+              </Button>
+            )}
+            {!isSuccess && isLoading && (
+              <Button disabled={!write || isLoading} onClick={() => write()}>
+                Loading
+              </Button>
+            )}
             {isSuccess && (
               <Button onClick={() => withdraw()}>
                 {' '}
-                <Link href='/apply'>Get Your Promo Code</Link>
+                {/* // TODO: input PromoCode into props */}
+                <Link href='/success'>Continue</Link>
               </Button>
             )}
+            <Button onClick={() => withdraw()}>Cancel</Button>
           </div>
           {/* TODO: pop-up for error message  */}
           {(isPrepareError || isError) && (
