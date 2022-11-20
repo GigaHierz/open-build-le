@@ -7,7 +7,11 @@ import Logo from "/public/images/logo.png";
 export default function Header(props) {
   return (
     <header className="h-full flex justify-between">
-      <Image src={Logo} alt="Logo of H.E.R. DAO" />
+      <Link href="/">
+        <a>
+          <Image src={Logo} alt="Logo of H.E.R. DAO" />
+        </a>
+      </Link>
 
       <div className="flex items-end gap-6 text-lg">
         <Link href="/about">

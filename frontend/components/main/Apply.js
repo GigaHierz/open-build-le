@@ -1,33 +1,19 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import Button from '/components/core/Button'
-import Checkbox from '../core/Checkbox'
-import Logo from '/public/images/logo.png'
-import YoutubeEmbed from '/components/core/YoutubeEmbed'
+import { useState } from "react";
+import Link from "next/link";
+import Button from "/components/core/Button";
+import Checkbox from "../core/Checkbox";
+import YoutubeEmbed from "/components/core/YoutubeEmbed";
 
-export default function Apply (props) {
-  const [privacyPolicy, setprivacyPolicy] = useState(false)
-  const [terms, setTerms] = useState(false)
-
-  function withdraw () {
-    console.log('withdraw')
-  }
+export default function Apply(props) {
+  const [privacyPolicy, setprivacyPolicy] = useState(false);
+  const [terms, setTerms] = useState(false);
 
   return (
-    <div className='p-4 xl:p-16 bg-grey'>
-      <header>
-        <Image src={Logo} alt='Logo of H.E.R. DAO' />
-        <a>about</a>
-        <a>apply</a>
-        <a>reimburse</a>
-        <a>FAQ</a>
-      </header>
-
+    <div>
       <h2>What do you need to do</h2>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className="grid grid-cols-2 gap-4">
         <div>
           <p>
             We will ask you to deposit the value of the ticket ($300) using
@@ -62,36 +48,38 @@ export default function Apply (props) {
             the sponsor. What are smart contracts? Watch this video to learn
             more!
           </p>
-          <div className=''>
+          <div className="">
             <Checkbox
-              name='BoxPolicy'
-              label='I agree to the privacy policy'
+              name="BoxPolicy"
+              label="I agree to the privacy policy"
               checked={privacyPolicy}
               onChange={() => setprivacyPolicy(!privacyPolicy)}
             ></Checkbox>
             <Checkbox
-              name='BoxTerms'
-              label='I have read and agree to the following terms and conditions'
+              name="BoxTerms"
+              label="I have read and agree to the following terms and conditions"
               checked={terms}
               onChange={() => setTerms(!terms)}
             ></Checkbox>
           </div>
-          <div className='App'>
+          <div className="App">
             <h1>Youtube Embed</h1>
-            <YoutubeEmbed youtubeId='ZE2HxTmxfrI' />
+            <YoutubeEmbed youtubeId="ZE2HxTmxfrI" />
           </div>
-          <div className='flex gap-4'>
+          <div className="flex gap-4">
             <Button disabled={!terms || !privacyPolicy}>
-              <Link disabled={!terms || !privacyPolicy} href='/form'>
+              <Link disabled={!terms || !privacyPolicy} href="/form">
                 Agree & Continue
               </Link>
             </Button>
-            <Button onClick={() => withdraw()}>
-              <Link href='/'>Cancel</Link>
-            </Button>
+            <Link href="/">
+              <a>
+                <Button>Cancel</Button>
+              </a>
+            </Link>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
