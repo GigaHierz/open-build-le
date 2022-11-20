@@ -12,7 +12,7 @@ export default function Front(props) {
   }
 
   return (
-    <div className="p-4 xl:p-16 bg-grey h-full">
+    <div className="p-4 xl:p-16 bg-grey">
       <header>
         <Image src={Logo} alt="Logo of H.E.R. DAO" />
         <a>about</a>
