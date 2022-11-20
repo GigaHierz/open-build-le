@@ -13,10 +13,13 @@ export default function Front(props) {
         <div>
           <p>
             Your staked tokens have been received. Your code for the conference
-            ticket is _________. Click below to redeem your code. We look
-            forward to seeing you at the conference
+            ticket is _________. Please Copy the Code and save it. Click below
+            to redeem your code. We look forward to seeing you at the conference
           </p>
-          <Button>Get your conference ticket</Button>
+          <Button>
+            <a href="https://www.web3hubs.org" target="_blank"></a>Get your
+            conference ticket
+          </Button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import Button from "/components/core/Button";
 import Image from "next/image";
 import CoinsImage from "/public/images/coins.png";
 import { utils } from "ethers";
+import Link from "next/link";
 
 export default function Terms(props) {
   const { address } = useAccount();
@@ -18,7 +19,7 @@ export default function Terms(props) {
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    addressOrName: "0xb190182D59351b9E525c73097f24646438D85D63",
+    addressOrName: "0xae5c8A495486fC0E14c6833f5772018976c5cD9a",
     contractInterface: [
       {
         inputs: [],
@@ -36,7 +37,7 @@ export default function Terms(props) {
       },
     ],
     functionName: "applyForTicket",
-    overrides: { from: address, value: utils.parseEther("0.02") },
+    overrides: { from: address, value: utils.parseEther("0.01") },
   });
   const { data, error, isError, write } = useContractWrite(config);
   const { isLoading, isSuccess } = useWaitForTransaction({
@@ -68,12 +69,30 @@ export default function Terms(props) {
           womenhack NY 2023. We can’t wait to see you there!
         </p>
         <div className="flex gap-4">
-          <Button disabled={!write || isLoading} onClick={() => write()}>
-            Agree and Continue
-          </Button>
-          <Button onClick={() => withdraw()}>Cancel</Button>
+          {!isSuccess && !isLoading && (
+            <Button disabled={!write || isLoading} onClick={() => write()}>
+              Agree
+            </Button>
+          )}
+          {!isSuccess && isLoading && (
+            <Button disabled={!write || isLoading} onClick={() => write()}>
+              Loading
+            </Button>
+          )}
+          {isSuccess && (
+            <Link href="/success">
+              <a>
+                <Button>Continue</Button>
+              </a>
+            </Link>
+          )}
+          <Link href="/">
+            <a>
+              <Button>Cancel</Button>
+            </a>
+          </Link>
         </div>
-        // TODO: put in pop-up
+        {/* TODO: pop-up for error message  */}
         {(isPrepareError || isError) && (
           <div>Error: {(prepareError || error)?.message}</div>
         )}

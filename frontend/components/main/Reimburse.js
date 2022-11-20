@@ -14,7 +14,7 @@ export default function Reimburse(props) {
     error: prepareError,
     isError: isPrepareError,
   } = usePrepareContractWrite({
-    addressOrName: "0xb190182D59351b9E525c73097f24646438D85D63",
+    addressOrName: "0xae5c8A495486fC0E14c6833f5772018976c5cD9a",
     contractInterface: [
       {
         inputs: [],
@@ -47,6 +47,18 @@ export default function Reimburse(props) {
             <Button disabled={!write || isLoading} onClick={() => write()}>
               Reimburse
             </Button>
+
+            {/* TODO: pop-up for error message  */}
+            {(isPrepareError || isError) && (
+              <div>
+                {" "}
+                {(prepareError || error)?.message?.includes(
+                  "You already got reimbursed"
+                )
+                  ? "You already got reimbursed"
+                  : error?.message}
+              </div>
+            )}
           </div>
         </div>
       </div>
