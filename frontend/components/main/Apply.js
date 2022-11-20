@@ -14,28 +14,16 @@ export default function Apply(props) {
     <div>
       <h1>What do you need to do</h1>
       <p>
-        We will ask you to deposit the value of the ticket ($300) using
+        We will ask you to deposit the value of the ticket (0.005ETH) using
         cryptocurrency tokens with us for the time of the conference. As these
         tickets were sponsored by Web3Hubs, we kindly ask you to participate in
         2 mandatory events. At each of these events, you will receive a POAP.
         Please make sure to get these POAPs as they are the preconditions for
-        you to receive your staked tokens. Additionally, install the APP if you
-        haven’t done so yet.
+        you to receive your staked tokens. Additionally, install the MetaMask
+        APP if you haven’t done so yet.
       </p>
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
-<<<<<<< HEAD
-          <p>
-            We will ask you to deposit the value of the ticket (0.005ETH) using
-            cryptocurrency tokens with us for the time of the conference. As
-            these tickets were sponsored by Web3Hubs, we kindly ask you to
-            participate in 2 mandatory events. At each of these events, you will
-            receive a POAP. Please make sure to get these POAPs as they are the
-            preconditions for you to receive your staked tokens. Additionally,
-            install the MetaMask APP if you haven’t done so yet.
-          </p>
-=======
->>>>>>> f552074f00d8050ab839cbf819b8d3809ac2726e
           <h2>Who can apply</h2>
           <p>
             As these tickets are supposed to go to women and non-binary people,
