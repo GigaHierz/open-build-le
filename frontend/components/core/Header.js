@@ -15,9 +15,9 @@ export default function Header(props) {
       </Link>
 
       <div className="flex items-end gap-6 text-lg">
-        <Link href="/about">
+        {/* <Link href="/about">
           <a className="py-2">about</a>
-        </Link>
+        </Link> */}
         <Link href="/apply">
           <a className="py-2">apply</a>
         </Link>
