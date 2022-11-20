@@ -1,11 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+
 import Button from '/components/core/Button'
 import TextInput from '/components/core/TextInput'
 import Checkbox from '../core/Checkbox'
 
-export default function Front (props) {
+export default function Form (props) {
   const [lastName, setLastName] = useState('')
   const [firstName, setFirstName] = useState('')
   const [suffix, setSuffix] = useState('')
@@ -67,7 +69,7 @@ export default function Front (props) {
         ></Checkbox>
         <Checkbox
           name='TestBox'
-          label='None-Binary'
+          label='Non-Binary'
           checked={checked}
           onChange={() => setChecked(!checked)}
         ></Checkbox>
@@ -88,11 +90,16 @@ export default function Front (props) {
       </div>
       <Checkbox
         name='TestBox'
-        label='None-Binary'
+        label='Non-Binary'
         checked={checked}
         onChange={() => setChecked(!checked)}
       ></Checkbox>
-      <Button onClick={() => withdraw()}>Cancel</Button>
+      <Button onClick={() => withdraw()}>
+        <Link href='/apply'>back</Link>
+      </Button>
+      <Button onClick={() => withdraw()}>
+        <Link href='/terms'>next</Link>
+      </Button>
     </div>
   )
 }

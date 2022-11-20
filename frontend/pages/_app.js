@@ -5,7 +5,7 @@ import { ConnectKitProvider, getDefaultClient } from 'connectkit'
 
 const client = createClient(
   getDefaultClient({
-    appName: 'ConnectKit Next.js demo',
+    appName: 'Salad',
     //infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
     alchemyId: 'RMikw8e80aHE2Ywu-uV1XgzPE2lhdfGU',
     chains: [chain.mainnet, chain.polygon, chain.optimism, chain.goerli]

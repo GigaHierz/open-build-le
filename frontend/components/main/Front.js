@@ -1,7 +1,7 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+
 import Placeholder from '/public/images/screenshot.png'
 // import { ConnectKitButton } from "connectkit";
 import { WagmiConfig, createClient } from 'wagmi'
@@ -12,13 +12,6 @@ import {
 } from 'connectkit'
 import Button from '/components/core/Button'
 import { Contract } from 'ethers'
-
-const client = createClient(
-  getDefaultClient({
-    appName: 'Your App Name',
-    alchemyId: 'alchemy api key'
-  })
-)
 
 export default function Front (props) {
   function withdraw () {
@@ -35,7 +28,11 @@ export default function Front (props) {
           <div className='flex gap-4'>
             {/* apply */}
             <ConnectKitButton />
-            <Button onClick={() => withdraw()}>withdraw</Button>
+            <Button onClick={() => withdraw()}>
+              {' '}
+              <Link href='/apply'>Apply</Link>
+            </Button>
+            <Button onClick={() => withdraw()}>Withdraw</Button>
           </div>
         </div>
 
