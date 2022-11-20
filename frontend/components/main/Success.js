@@ -1,25 +1,33 @@
 "use client";
 
-import Button from "/components/core/Button";
+import Link from "next/link";
 import Image from "next/image";
+import Button from "/components/core/Button";
 import Placeholder from "/public/images/humansAndTickets.png";
 
 export default function Front(props) {
   return (
-    <div>
-      <Image src={Placeholder} alt="Picture of the author" />
-      <h1>Success</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
+    <div className="grid place-items-center ">
+      <div className="grid max-w-screen-lg justify-items-center gap-8">
+        <Image
+          src={Placeholder}
+          alt="Picture of the author"
+          width={400}
+          height={300}
+          objectFit="contain"
+        />
+        <h1>Success</h1>
+        <div className="grid justify-items-center gap-4">
           <p>
             Your staked tokens have been received. Your code for the conference
             ticket is _________. Please Copy the Code and save it. Click below
             to redeem your code. We look forward to seeing you at the conference
           </p>
-          <Button>
-            <a href="https://www.web3hubs.org" target="_blank"></a>Get your
-            conference ticket
-          </Button>
+          <Link href="https://www.web3hubs.org">
+            <a target="_blank">
+              <Button>conference ticket</Button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
