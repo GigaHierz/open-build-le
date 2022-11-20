@@ -4,4 +4,10 @@
 
 ## Dev
 
+run
+`yarn`
+
+run
+`yarn dev`
+
 ## Prod
