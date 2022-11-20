@@ -8,9 +8,6 @@ import Checkbox from '../core/Checkbox'
 import Logo from '/public/images/logo.png'
 import YoutubeEmbed from '/components/core/YoutubeEmbed'
 
-import Button from '/components/core/Button'
-import Checkbox from '../core/Checkbox'
-
 export default function Apply (props) {
   const [privacyPolicy, setprivacyPolicy] = useState(false)
   const [terms, setTerms] = useState(false)
