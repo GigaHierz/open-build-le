@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "/components/core/Button";
 import Image from "next/image";
 import Logo from "/public/images/logo.png";
-import Placeholder from "/public/images/womenTogehter.png";
+import Placeholder from "/public/images/humansAndTickets.png";
 
 export default function Front(props) {
   function withdraw() {
@@ -12,7 +12,7 @@ export default function Front(props) {
   }
 
   return (
-    <div className="p-4 xl:p-16 bg-grey">
+    <div className="p-4 xl:p-16 bg-grey h-full">
       <header>
         <Image src={Logo} alt="Logo of H.E.R. DAO" />
         <a>about</a>
@@ -21,21 +21,15 @@ export default function Front(props) {
         <a>FAQ</a>
       </header>
       <Image src={Placeholder} alt="Picture of the author" />
-      <h2>Congrats</h2>
+      <h2>Success</h2>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p>
-            Womenhack NY 2023 was a huge success and we are so glad you could
-            share this beautiful experience with us. If you hold the two
-            requested POAPs, you will receive your staked tokens back.
+            Your staked tokens have been received. Your code for the conference
+            ticket is _________. Click below to redeem your code. We look
+            forward to seeing you at the conference
           </p>
-          <a
-            href="https://linktr.ee/H.E.R.DAO"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Linktree
-          </a>
+          <Button>Get your conference ticket</Button>
         </div>
       </div>
     </div>

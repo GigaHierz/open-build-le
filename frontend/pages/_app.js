@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import { WagmiConfig, createClient, chain } from "wagmi";
 import { ConnectKitProvider, getDefaultClient } from "connectkit";
+import Layout from "/components/layout";
 
 const client = createClient(
   getDefaultClient({
@@ -16,7 +17,9 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={client}>
       <ConnectKitProvider>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ConnectKitProvider>
     </WagmiConfig>
   );
