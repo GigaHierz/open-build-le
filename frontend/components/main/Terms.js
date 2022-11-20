@@ -22,7 +22,7 @@ export default function Terms (props) {
     error: prepareError,
     isError: isPrepareError
   } = usePrepareContractWrite({
-    addressOrName: '0xb190182D59351b9E525c73097f24646438D85D63',
+    addressOrName: '0xae5c8A495486fC0E14c6833f5772018976c5cD9a',
     contractInterface: [
       {
         inputs: [],
@@ -40,7 +40,7 @@ export default function Terms (props) {
       }
     ],
     functionName: 'applyForTicket',
-    overrides: { from: address, value: utils.parseEther('0.02') }
+    overrides: { from: address, value: utils.parseEther('0.005') }
   })
   console.log(config)
 
