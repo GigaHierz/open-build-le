@@ -44,36 +44,39 @@ export default function Terms(props) {
   });
 
   return (
-    <div>
-      <h1>Terms of Service</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <Image src={CoinsImage} alt="coins" />
-          <p>
-            Please make sure to read these instructions carefully. After
-            agreeing to this, you will be promoted to stake 0.01ETH. You will
-            only be able to get these Tokens back if you have attended all
-            mandatory events. You will be able to prove that you received these,
-            by collecting POAPs at these events. These POAPs have to be in the
-            same wallet, that you staked your Tokens with. We won’t be able to
-            reimburse you if you don’t have these POAPs, as you are now
-            interacting with a smart contract. This means that the conditions of
-            the contract are written into the blockchain and are immutable. With
-            signing this transaction, you agree to all conditions for receiving
-            a conference Ticket to the womenhack NY 2023. We can’t wait to see
-            you there!
-          </p>
-          <div className="flex gap-4">
-            <Button disabled={!write || isLoading} onClick={() => write()}>
-              Agree and Continue
-            </Button>
-            <Button onClick={() => withdraw()}>Cancel</Button>
-          </div>
-          // TODO: put in pop-up
-          {(isPrepareError || isError) && (
-            <div>Error: {(prepareError || error)?.message}</div>
-          )}
+    <div className="grid place-items-center ">
+      <div className="grid max-w-screen-lg justify-items-center gap-8">
+        <h1>Terms of Service</h1>
+        <Image
+          src={CoinsImage}
+          alt="coins"
+          width={300}
+          height={200}
+          objectFit="contain"
+        />
+        <p>
+          Please make sure to read these instructions carefully. After agreeing
+          to this, you will be promoted to stake 0.01ETH. You will only be able
+          to get these Tokens back if you have attended all mandatory events.
+          You will be able to prove that you received these, by collecting POAPs
+          at these events. These POAPs have to be in the same wallet, that you
+          staked your Tokens with. We won’t be able to reimburse you if you
+          don’t have these POAPs, as you are now interacting with a smart
+          contract. This means that the conditions of the contract are written
+          into the blockchain and are immutable. With signing this transaction,
+          you agree to all conditions for receiving a conference Ticket to the
+          womenhack NY 2023. We can’t wait to see you there!
+        </p>
+        <div className="flex gap-4">
+          <Button disabled={!write || isLoading} onClick={() => write()}>
+            Agree and Continue
+          </Button>
+          <Button onClick={() => withdraw()}>Cancel</Button>
         </div>
+        // TODO: put in pop-up
+        {(isPrepareError || isError) && (
+          <div>Error: {(prepareError || error)?.message}</div>
+        )}
       </div>
     </div>
   );

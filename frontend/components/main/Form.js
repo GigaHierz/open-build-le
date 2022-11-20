@@ -25,7 +25,7 @@ export default function Front(props) {
   return (
     <div>
       <h1>Header</h1>
-      <div>
+      <div className="grid gap-8 lg:grid-cols-2">
         <TextInput
           name="lastName"
           required={true}
@@ -39,14 +39,8 @@ export default function Front(props) {
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         ></TextInput>
-        <TextInput
-          name="suffix"
-          label="Suffix"
-          value={suffix}
-          onChange={(e) => setSuffix(e.target.value)}
-        ></TextInput>
       </div>
-      <div>
+      <div className="grid gap-8 lg:grid-cols-2">
         <TextInput
           name="phoneNumber"
           label="Phone Number"
@@ -60,8 +54,8 @@ export default function Front(props) {
           onChange={(e) => setEMail(e.target.value)}
         ></TextInput>
       </div>
-      <p>I identify as...</p>
-      <div>
+      <p className="mt-8 mb-4">I identify as...</p>
+      <div className="grid gap-8 lg:grid-cols-2">
         <Checkbox
           name="Female"
           label="female"
@@ -75,7 +69,7 @@ export default function Front(props) {
           onChange={() => setNonBinary(!nonBinary)}
         ></Checkbox>
       </div>
-      <div>
+      <div className="grid gap-8 lg:grid-cols-2 mt-8">
         <TextInput
           name="linkedin"
           label="LinkedIn"
@@ -88,24 +82,26 @@ export default function Front(props) {
           value={github}
           onChange={(e) => setGithub(e.target.value)}
         ></TextInput>
-        <p>*Required Fields</p>
       </div>
+      <p className="mb-4">*Required Fields</p>
       <Checkbox
         name="TestBox"
         label="I verify that the provided information above is truthful"
         checked={checked}
         onChange={() => setChecked(!checked)}
       ></Checkbox>
-      <Link href="/apply">
-        <a>
-          <Button>back</Button>
-        </a>
-      </Link>
-      <Link href="/terms">
-        <a>
-          <Button>next</Button>
-        </a>
-      </Link>
+      <div className="flex justify-center gap-8 mt-8">
+        <Link href="/apply">
+          <a>
+            <Button>back</Button>
+          </a>
+        </Link>
+        <Link href="/terms">
+          <a>
+            <Button>next</Button>
+          </a>
+        </Link>
+      </div>
     </div>
   );
 }
