@@ -1,59 +1,59 @@
-"use client";
+'use client'
 
 import {
   usePrepareContractWrite,
   useContractWrite,
   useWaitForTransaction,
-  useAccount,
-} from "wagmi";
-import Button from "/components/core/Button";
-import Image from "next/image";
-import CoinsImage from "/public/images/coins.png";
-import { utils } from "ethers";
-import Link from "next/link";
+  useAccount
+} from 'wagmi'
+import Button from '/components/core/Button'
+import Image from 'next/image'
+import CoinsImage from '/public/images/coins.png'
+import { utils } from 'ethers'
+import Link from 'next/link'
 
-export default function Terms(props) {
-  const { address } = useAccount();
+export default function Terms (props) {
+  const { address } = useAccount()
   const {
     config,
     error: prepareError,
-    isError: isPrepareError,
+    isError: isPrepareError
   } = usePrepareContractWrite({
-    addressOrName: "0xae5c8A495486fC0E14c6833f5772018976c5cD9a",
+    addressOrName: '0xae5c8A495486fC0E14c6833f5772018976c5cD9a',
     contractInterface: [
       {
         inputs: [],
-        name: "applyForTicket",
+        name: 'applyForTicket',
 
         outputs: [
           {
-            internalType: "string",
-            name: "",
-            type: "string",
-          },
+            internalType: 'string',
+            name: '',
+            type: 'string'
+          }
         ],
-        stateMutability: "payable",
-        type: "function",
-      },
+        stateMutability: 'payable',
+        type: 'function'
+      }
     ],
-    functionName: "applyForTicket",
-    overrides: { from: address, value: utils.parseEther("0.01") },
-  });
-  const { data, error, isError, write } = useContractWrite(config);
+    functionName: 'applyForTicket',
+    overrides: { from: address, value: utils.parseEther('0.01') }
+  })
+  const { data, error, isError, write } = useContractWrite(config)
   const { isLoading, isSuccess } = useWaitForTransaction({
-    hash: data?.hash,
-  });
+    hash: data?.hash
+  })
 
   return (
-    <div className="grid place-items-center ">
-      <div className="grid max-w-screen-lg justify-items-center gap-8">
+    <div className='grid place-items-center '>
+      <div className='grid max-w-screen-lg justify-items-center gap-8'>
         <h1>Terms of Service</h1>
         <Image
           src={CoinsImage}
-          alt="coins"
+          alt='coins'
           width={300}
           height={200}
-          objectFit="contain"
+          objectFit='contain'
         />
         <p>
           Please make sure to read these instructions carefully. After agreeing
@@ -68,7 +68,7 @@ export default function Terms(props) {
           you agree to all conditions for receiving a conference Ticket to the
           womenhack NY 2023. We can’t wait to see you there!
         </p>
-        <div className="flex gap-4">
+        <div className='flex gap-4'>
           {!isSuccess && !isLoading && (
             <Button disabled={!write || isLoading} onClick={() => write()}>
               Agree
@@ -80,23 +80,25 @@ export default function Terms(props) {
             </Button>
           )}
           {isSuccess && (
-            <Link href="/success">
+            <Link href='/success'>
               <a>
                 <Button>Continue</Button>
               </a>
             </Link>
           )}
-          <Link href="/">
+          <Link href='/'>
             <a>
               <Button>Cancel</Button>
             </a>
           </Link>
         </div>
         {/* TODO: pop-up for error message  */}
-        {(isPrepareError || isError) && (
-          <div>Error: {(prepareError || error)?.message}</div>
-        )}
+        {(prepareError || error)?.message?.includes(
+          'You already bought a ticket'
+        )
+          ? 'You already bought a ticket. There is only one Ticket per person.'
+          : ''}
       </div>
     </div>
-  );
+  )
 }

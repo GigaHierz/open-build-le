@@ -3,6 +3,12 @@
 this is an open Source dApp - decentralized application for Bootcamps, NGOs to prove that recipients of scholarships fulfill their part of the deal.
 For example H.E.R. DAO, a women and non.binary focused developer and builder DAO often gets tickets provided by conferences to distribute to women and non-binary people. The organisation sponsoring the tickets often expects something in return, like attending a talk or workshop. To incentivise people to fulfil this requirement, we ask them to stake Tokens in the value of the Ticket with us. If they fulfil all requirements, they will get their tokens back.
 
+- Find the page (here)[https://open-build-le.vercel.app/apply]
+
+- Find the presentation (here)[https://www.canva.com/design/DAFSeTyfRoY/wBh7r-KSsWZAgQvxZCaeTQ/view?utm_content=DAFSeTyfRoY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink#1]
+
+- Find the video (here)[https://www.loom.com/share/5ea3fbb1231a46f8828f277951269559]
+
 ## Team
 
 - (Sebi)[https://github.com/Sebi900]: FE
