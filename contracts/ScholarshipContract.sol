@@ -13,7 +13,7 @@ contract ScholarshipContract {
     address payable public owner;
     string[] public promoCodes;
     uint256 public ticketPrice;
-    address[] public poapCollections;
+    string[] public poapCollections;
     mapping(address => bool) scholarReimbursed;
     address[] scholarshipRecipients;
 
@@ -39,7 +39,7 @@ contract ScholarshipContract {
         address payable _owner,
         string[] memory _promoCodes,
         uint256 _ticketPrice,
-        address[] memory _poapCollections
+        string[] memory _poapCollections
     ) payable {
         owner = _owner;
         promoCodes = _promoCodes;
@@ -67,7 +67,8 @@ contract ScholarshipContract {
         return promoCodes[_codeCounter.current() - 1];
     }
 
-    function withdraw() public {
+    // User will only be reimbursed based on the percentage of mandatory events attended
+    function withdraw(uint256 percentageToBeReimbursed) public {
         require(
             scholarReimbursed[msg.sender] == false,
             "You already got reimbursed"
@@ -77,13 +78,13 @@ contract ScholarshipContract {
         // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
 
         address payable to = payable(msg.sender);
-        to.transfer(ticketPrice);
+        to.transfer(ticketPrice * percentageToBeReimbursed);
         scholarReimbursed[msg.sender] = true;
 
         emit Withdrawal(to);
     }
 
-    function getPoapCollection() public view returns (string[] memory) {
-        return promoCodes;
+    function getPoapCollections() public view returns (string[] memory) {
+        return poapCollections;
     }
 }

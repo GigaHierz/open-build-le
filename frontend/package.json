@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "api": "^5.0.4",
     "connectkit": "^1.0.0",
     "ethers": "^5.7.2",
     "next": "12.3.0",
