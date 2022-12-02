@@ -11,26 +11,29 @@ async function main () {
   // const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60
   // const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS
 
+  const [owner, otherAccount] = await ethers.getSigners()
+
+  const promoCodes = [
+    '0BXDN-5DT3$',
+    '0BXDN-5DT33',
+    '0BXDN-5DT34',
+    '0BXDN-5DT35',
+    '0BXDN-5DT36',
+    '0BXDN-5DT37',
+    '0BXDN-5DT38'
+  ]
+  const poapCollections = ['44863', '39583']
+
   const ticketPrice = hre.ethers.utils.parseEther('0.01')
 
   const ScholarshipContract = await hre.ethers.getContractFactory(
     'ScholarshipContract'
   )
   const scholarshipContract = await ScholarshipContract.deploy(
-    '0x78344979959c9d25beb73748269a2b5533f87a51',
-    // 0x78344979959c9d25beb73748269a2b5533f87a51,
-    [
-      '0BXDN-5DT3$',
-      '0BXDN-5DT33',
-      '0BXDN-5DT34',
-      '0BXDN-5DT35',
-      '0BXDN-5DT36',
-      '0BXDN-5DT37',
-      '0BXDN-5DT38'
-    ],
+    owner,
+    promoCodes,
     ticketPrice,
-    // 10000000000,
-    []
+    poapCollections
   )
 
   await scholarshipContract.deployed()
